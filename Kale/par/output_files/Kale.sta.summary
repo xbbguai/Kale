@@ -1,0 +1,389 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Clock:mainClock|clkVGA'
+Slack : -33.052
+TNS   : -702.716
+
+Type  : Slow 1200mV 85C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -18.366
+TNS   : -1325.681
+
+Type  : Slow 1200mV 85C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -11.135
+TNS   : -386.782
+
+Type  : Slow 1200mV 85C Model Setup 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -8.484
+TNS   : -66.760
+
+Type  : Slow 1200mV 85C Model Setup 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : -7.651
+TNS   : -471.142
+
+Type  : Slow 1200mV 85C Model Setup 'sys_clk'
+Slack : -5.578
+TNS   : -810.761
+
+Type  : Slow 1200mV 85C Model Setup 'Clock:mainClock|clk1M'
+Slack : -5.045
+TNS   : -197.863
+
+Type  : Slow 1200mV 85C Model Setup 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.644
+TNS   : -0.644
+
+Type  : Slow 1200mV 85C Model Hold 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.496
+TNS   : -1.496
+
+Type  : Slow 1200mV 85C Model Hold 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.230
+TNS   : -0.230
+
+Type  : Slow 1200mV 85C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : 0.128
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Clock:mainClock|clk1M'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'sys_clk'
+Slack : 0.424
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Clock:mainClock|clkVGA'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 1.711
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -4.494
+TNS   : -17.976
+
+Type  : Slow 1200mV 85C Model Recovery 'sys_clk'
+Slack : -3.322
+TNS   : -267.337
+
+Type  : Slow 1200mV 85C Model Recovery 'Clock:mainClock|clk1M'
+Slack : -2.112
+TNS   : -79.715
+
+Type  : Slow 1200mV 85C Model Recovery 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -1.843
+TNS   : -53.790
+
+Type  : Slow 1200mV 85C Model Removal 'sys_clk'
+Slack : -0.077
+TNS   : -9.055
+
+Type  : Slow 1200mV 85C Model Removal 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : 1.460
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Clock:mainClock|clk1M'
+Slack : 2.013
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.451
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock:mainClock|clkVGA'
+Slack : -3.201
+TNS   : -145.351
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock:mainClock|clk1M'
+Slack : -3.201
+TNS   : -128.086
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -1.487
+TNS   : -135.317
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -1.487
+TNS   : -89.220
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 0.462
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.688
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sys_clk'
+Slack : 9.753
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 17.180
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Clock:mainClock|clkVGA'
+Slack : -30.179
+TNS   : -643.698
+
+Type  : Slow 1200mV 0C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -17.265
+TNS   : -1249.285
+
+Type  : Slow 1200mV 0C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -10.503
+TNS   : -363.491
+
+Type  : Slow 1200mV 0C Model Setup 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -7.669
+TNS   : -60.338
+
+Type  : Slow 1200mV 0C Model Setup 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : -7.053
+TNS   : -436.622
+
+Type  : Slow 1200mV 0C Model Setup 'sys_clk'
+Slack : -4.958
+TNS   : -737.646
+
+Type  : Slow 1200mV 0C Model Setup 'Clock:mainClock|clk1M'
+Slack : -4.670
+TNS   : -180.571
+
+Type  : Slow 1200mV 0C Model Setup 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.447
+TNS   : -0.447
+
+Type  : Slow 1200mV 0C Model Hold 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.444
+TNS   : -1.444
+
+Type  : Slow 1200mV 0C Model Hold 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.346
+TNS   : -0.346
+
+Type  : Slow 1200mV 0C Model Hold 'Clock:mainClock|clk1M'
+Slack : 0.116
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : 0.224
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'sys_clk'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Clock:mainClock|clkVGA'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 1.649
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.981
+TNS   : -15.924
+
+Type  : Slow 1200mV 0C Model Recovery 'sys_clk'
+Slack : -2.972
+TNS   : -235.415
+
+Type  : Slow 1200mV 0C Model Recovery 'Clock:mainClock|clk1M'
+Slack : -1.802
+TNS   : -66.875
+
+Type  : Slow 1200mV 0C Model Recovery 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -1.730
+TNS   : -45.886
+
+Type  : Slow 1200mV 0C Model Removal 'sys_clk'
+Slack : -0.102
+TNS   : -12.502
+
+Type  : Slow 1200mV 0C Model Removal 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : 1.309
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Clock:mainClock|clk1M'
+Slack : 1.807
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.048
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock:mainClock|clkVGA'
+Slack : -3.201
+TNS   : -145.351
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock:mainClock|clk1M'
+Slack : -3.201
+TNS   : -128.095
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -1.487
+TNS   : -135.317
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -1.487
+TNS   : -89.220
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.669
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : 9.726
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 17.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Clock:mainClock|clkVGA'
+Slack : -13.358
+TNS   : -254.196
+
+Type  : Fast 1200mV 0C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -7.447
+TNS   : -529.864
+
+Type  : Fast 1200mV 0C Model Setup 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -4.236
+TNS   : -147.855
+
+Type  : Fast 1200mV 0C Model Setup 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.617
+TNS   : -28.494
+
+Type  : Fast 1200mV 0C Model Setup 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : -3.002
+TNS   : -177.728
+
+Type  : Fast 1200mV 0C Model Setup 'sys_clk'
+Slack : -2.201
+TNS   : -283.415
+
+Type  : Fast 1200mV 0C Model Setup 'Clock:mainClock|clk1M'
+Slack : -1.636
+TNS   : -57.115
+
+Type  : Fast 1200mV 0C Model Setup 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.426
+TNS   : -0.426
+
+Type  : Fast 1200mV 0C Model Hold 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -0.696
+TNS   : -0.696
+
+Type  : Fast 1200mV 0C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -0.089
+TNS   : -0.090
+
+Type  : Fast 1200mV 0C Model Hold 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.054
+TNS   : -0.054
+
+Type  : Fast 1200mV 0C Model Hold 'sys_clk'
+Slack : 0.031
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Clock:mainClock|clk1M'
+Slack : 0.092
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : 0.129
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Clock:mainClock|clkVGA'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 0.915
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.522
+TNS   : -6.088
+
+Type  : Fast 1200mV 0C Model Recovery 'sys_clk'
+Slack : -0.938
+TNS   : -64.152
+
+Type  : Fast 1200mV 0C Model Recovery 'Clock:mainClock|clk1M'
+Slack : -0.449
+TNS   : -14.356
+
+Type  : Fast 1200mV 0C Model Recovery 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -0.412
+TNS   : -7.159
+
+Type  : Fast 1200mV 0C Model Removal 'sys_clk'
+Slack : -0.058
+TNS   : -7.123
+
+Type  : Fast 1200mV 0C Model Removal 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : 0.656
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Clock:mainClock|clk1M'
+Slack : 0.923
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.906
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d2|phi_1'
+Slack : -1.000
+TNS   : -91.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock:mainClock|clkVGA'
+Slack : -1.000
+TNS   : -77.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock:mainClock|clk1M'
+Slack : -1.000
+TNS   : -70.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ag6502_ext_clock:PhisClock|ag6502_phase_shift:d1|phi_1'
+Slack : -1.000
+TNS   : -60.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AppleMemory:appleMemory|AppleIO:appleIO|pdlStarts'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'mainClock|memoryClock|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.771
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : 9.410
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'mainClock|mainClock|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 17.260
+TNS   : 0.000
+
+------------------------------------------------------------

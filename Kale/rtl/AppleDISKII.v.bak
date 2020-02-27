@@ -1,0 +1,279 @@
+module AppleDISKII(input clk6502,
+						 input phi_1,
+//						 input clk2M,
+//						 input clk7M,
+						 input RstN,
+						 input [15:0] address,
+						 input [7:0] dataIn,
+						 output [7:0] dataOut,
+						 input rw,
+						 input IOSEL_n,
+						 input IOSTB_n,
+						 input DEVSEL_n,
+						 output rdy,
+						 
+						 //OSD is implemented through UART communication with disk ii simulator
+						 input clk,	
+						 output TxD,
+						 input RxD,
+						 //OSD data exchange with AppleIO.v
+ 						 //OSD screen address and data
+						 output [9:0] OSDScrAddr,
+						 output [7:0] OSDScrData,
+						 //OSD keyboard command recevie from AppleIO.v
+						 input [7:0] OSDKeyAscii,
+						 input OSDKeyStroke,
+						 output reg exitOSD,
+						 //PDL data output
+						 output [7:0] pdlData0,
+						 output [7:0] pdlData1,
+						 output [7:0] pdlData2,
+						 output [7:0] pdlData3,
+						 
+						 inout [7:0] DB,	//Data Bus
+						 output reg[1:0] phases,	//Head phase
+						 output reg phaseChange,	//Phase change notification
+						 output reg powerOn,
+						 output reg dskDEVSEL,
+						 output reg dskRW,
+						 input dskRdy
+						);
+	
+	localparam CMD_PHASE0  = 4'h1;	//0001
+	localparam CMD_PHASE1  = 4'h3;	//0011
+	localparam CMD_PHASE2  = 4'h5;	//0101
+	localparam CMD_PHASE3  = 4'h7;	//0111
+	localparam CMD_POWEROFF= 4'h8;
+	localparam CMD_POWERON = 4'h9;
+	localparam CMD_DRIVE1  = 4'ha;
+	localparam CMD_DRIVE2  = 4'hb;
+	localparam CMD_READ    = 4'hc;
+	localparam CMD_WRITE   = 4'hd;
+	localparam CMD_READEN  = 4'he;
+	localparam CMD_WRITEEN = 4'hf;
+	localparam BAUDRATE = 115200;
+	
+	//DISK II ROM
+	(* ram_init_file = "DISKIIROM.mif" *)reg [7:0] DISKIIROM[255:0];
+
+	wire [3:0] command;
+	assign command = address[3:0];
+	
+	//Output DISK II ROM or data received from DISK II simulator to data bus
+	assign dataOut = !IOSEL_n ? DISKIIROM[address[7:0]] :// - ROM_ADDR_START] : 
+						  command == CMD_READ ? DB :
+						  8'h0;
+						  
+						 
+	reg [7:0] dataWriteToDisk;
+	reg drive12;	//0 = drive1, 1 = drive2
+	
+	assign DB = dskRW == 1'b1 ? 8'bzzzzzzz : dataWriteToDisk;
+	
+	assign rdy = (rw == 0) || (dskDEVSEL == 1'b1 && dskRdy == 1'b1);	//Let CPU wait if $C0EC is being read.
+	
+	//Sense phi_1 fall and dskRdy rise
+	reg clkSense;
+	wire clkFall = clkSense == 1'b1 && phi_1 == 0;
+	reg [3:0] dskRdySense;
+	wire dskRdySignal = (dskRdySense[3] == 0 && dskRdy == 1'b1);
+	wire stableDskRdy = (dskRdySense[2] == 1'b1 && dskRdySense[3] == 1'b1 && dskRdy == 1'b1);
+	always @(posedge clk or negedge RstN) begin
+		if (!RstN) begin
+			clkSense <= 0;
+			dskRdySense <= 1'b1;
+		end
+		else begin
+			clkSense <= phi_1;
+			dskRdySense <= {dskRdy, dskRdySense[3:1]};
+		end
+	end	
+
+	//Parse disk ii command and send signal to stm32 module
+	always @(negedge phi_1 or negedge RstN) begin
+		if (!RstN) begin
+			phases <= 2'b0;
+			phaseChange <= 1'b1;
+			powerOn <= 0;
+			dataWriteToDisk <= 0;
+			dskRW <= 1'b1;
+			drive12 <= 0;
+			dskDEVSEL <= 1'b1;
+		end
+		else if (!DEVSEL_n) begin
+			//Parse the command 
+			if (command == CMD_READEN)
+				dskRW <= 1'b1;
+			else if (command == CMD_WRITEEN) begin
+				dskRW <= 1'b0;
+				if (stableDskRdy) begin
+					dskDEVSEL <= 1'b0;
+					dataWriteToDisk <= dataIn;
+				end
+				else
+					dskDEVSEL <= dskDEVSEL;
+			end
+			else if (command == CMD_POWERON)
+				powerOn <= 1'b1;
+			else if (command == CMD_POWEROFF)
+				powerOn <= 1'b0;
+			else if (command == CMD_READ && dskRW == 1'b1 && rw == 1) begin
+				if (stableDskRdy && rdy == 1'b1) begin
+					dskDEVSEL <= 1'b0;
+				end
+				else
+					dskDEVSEL <= dskDEVSEL;
+			end
+			else if (command == CMD_WRITE && dskRW == 1'b0 && rw == 0) begin
+				if (stableDskRdy) begin
+					dskDEVSEL <= 1'b0;
+					dataWriteToDisk <= dataIn;
+				end
+				else
+					dskDEVSEL <= dskDEVSEL;
+			end
+			else if (command == CMD_PHASE0) begin
+				phaseChange <= 0;
+				phases[1:0] <= 2'b00;	
+			end
+			else if (command == CMD_PHASE1) begin
+				phaseChange <= 0;
+				phases[1:0] <= 2'b01;	
+			end
+			else if (command == CMD_PHASE2) begin
+				phaseChange <= 0;
+				phases[1:0] <= 2'b10;	
+			end
+			else if (command == CMD_PHASE3) begin
+				phaseChange <= 0;
+				phases[1:0] <= 2'b11;	
+			end
+			else if (command == CMD_DRIVE1) begin
+				drive12 <= 1'b0;
+			end
+			else if (command == CMD_DRIVE2) begin
+				drive12 <= 1'b1;
+			end
+			else if (dskRdy == 0) begin
+				dskDEVSEL <= 1'b1;
+			end
+			else begin
+				dskDEVSEL <= dskDEVSEL;
+				phaseChange <= 1'b1;	//Pull up phase interrupt line
+			end
+		end
+		else if (dskRdy == 0) begin
+			dskDEVSEL <= 1'b1;
+		end
+		else begin
+			dskDEVSEL <= dskDEVSEL;
+			phaseChange <= 1'b1;	//Pull up phase interrupt line
+		end
+	end
+
+	//
+	//-------OSD and PDL channels ADC STARTS HERE-----------
+	//
+	
+	//UART TxD
+	reg startTransfer;
+	wire uartOutIdle;
+	UARTSend #(.UART_BPS(BAUDRATE)) uartOut(.sys_clk(clk),
+													 .sys_rst_n(RstN),
+													 .uart_din(OSDKeyAscii),
+													 .uart_en(startTransfer),
+													 .idle(uartOutIdle),
+													 .uart_txd(TxD));
+							 
+	//UART RxD
+	wire [7:0] dataRxD;
+	wire dataReady;
+	UARTReceive #(.UART_BPS(BAUDRATE)) uartIn(.sys_clk(clk),
+														.sys_rst_n(RstN),
+														.uart_data(dataRxD),
+														.uart_done(dataReady),
+														.uart_rxd(RxD));	
+	
+
+	//Send keyboard data to simulator
+	always @(posedge clk or negedge RstN) begin
+		if (!RstN)
+			startTransfer <= 0;
+		else begin
+			if (OSDKeyStroke)
+				startTransfer <= 1'b1;
+			else if (uartOutIdle == 0)
+				startTransfer <= 1'b0;
+		end
+	end
+	
+	reg [9:0] screenAddr;
+	reg [7:0] screenData;
+	reg [9:0] addrCache;
+	reg [2:0] RxDStatus;
+	assign OSDScrAddr = screenAddr;
+	assign OSDScrData = screenData;
+	reg dataReady0;
+	
+	always @(posedge clk or negedge RstN) begin
+		if (!RstN) begin
+			dataReady0 <= 0;
+		end 
+		else	
+			dataReady0 <= dataReady;
+	end
+	
+	reg[1:0] pdlDataIdx;
+	reg pdlReceiving;
+	reg[7:0] pdlData[4];
+	assign pdlData0 = pdlData[0];
+	assign pdlData1 = pdlData[1];
+	assign pdlData2 = pdlData[2];
+	assign pdlData3 = pdlData[3];
+	always @(posedge clk or negedge RstN) begin
+		if (!RstN) begin
+			RxDStatus <= 3'b1;
+			addrCache <= 0;
+			screenData <= 0;
+			exitOSD <= 0;
+			pdlDataIdx <= 2'b0;
+			pdlReceiving <= 0;
+		end
+		else if (dataReady0 == 0 && dataReady) begin
+			if (pdlReceiving) begin
+				if (pdlDataIdx == 2'b11) begin
+					pdlReceiving <= 0;
+				end
+				pdlDataIdx <= pdlDataIdx + 1;
+				pdlData[pdlDataIdx] <= dataRxD;
+			end
+			else begin
+				if (dataRxD == 8'hff) begin
+					pdlReceiving <= 1'b1;
+					pdlDataIdx <= 0;
+				end
+				else if (dataRxD == 0 && RxDStatus == 3'b100) begin
+					RxDStatus <= 3'b1;
+					if (addrCache == 0) 
+						exitOSD <= 1'b1;	//address = 0 && data = 0, must exit osd
+				end
+				else if (RxDStatus == 3'b1) begin 
+					RxDStatus <= 3'b010;
+					addrCache[7:0] <= dataRxD;
+				end
+				else if (RxDStatus == 3'b10) begin
+					RxDStatus <= 3'b100;
+					addrCache[9:8] <= dataRxD[1:0];
+				end
+				else begin
+					//Normal data transfer to screen
+					screenAddr <= addrCache;
+					screenData <= dataRxD;
+					addrCache <= addrCache + 1;
+				end
+			end
+		end
+		else
+			exitOSD <= 0;
+	end
+endmodule

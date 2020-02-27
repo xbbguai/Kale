@@ -1,0 +1,148 @@
+Flow report for Kale
+Thu Feb 27 20:26:39 2020
+Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Flow Summary                                                                    ;
++------------------------------------+--------------------------------------------+
+; Flow Status                        ; Successful - Thu Feb 27 20:26:39 2020      ;
+; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
+; Revision Name                      ; Kale                                       ;
+; Top-level Entity Name              ; Kale                                       ;
+; Family                             ; Cyclone IV E                               ;
+; Device                             ; EP4CE10F17C8                               ;
+; Timing Models                      ; Final                                      ;
+; Total logic elements               ; 3,438 / 10,320 ( 33 % )                    ;
+;     Total combinational functions  ; 3,378 / 10,320 ( 33 % )                    ;
+;     Dedicated logic registers      ; 636 / 10,320 ( 6 % )                       ;
+; Total registers                    ; 636                                        ;
+; Total pins                         ; 79 / 180 ( 44 % )                          ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 111,872 / 423,936 ( 26 % )                 ;
+; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                             ;
+; Total PLLs                         ; 2 / 2 ( 100 % )                            ;
++------------------------------------+--------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 02/27/2020 20:25:15 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Kale                ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 121367215057.158280631507852          ; --            ; --          ; --             ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; VGA_vlg_tst                           ; --            ; --          ; eda_simulation ;
+; EDA_NETLIST_WRITER_OUTPUT_DIR        ; simulation/modelsim                   ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation ;
+; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/pll_clk_memory_bb.v            ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/pll_clk_memory.ppf             ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/pll_clk_bb.v                   ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/pll_clk.ppf                    ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/ROM_bb.v                       ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/CharGeneratorROM_bb.v          ; --            ; --          ; --             ;
+; MISC_FILE                            ; ../rtl/OSDScreenRAM_bb.v              ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS       ; Half Signal Swing                     ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS       ; Half Signal Swing                     ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS      ; Half Vccio                            ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS      ; Half Vccio                            ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top            ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; VGA         ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; VGA         ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; VGA         ; Top            ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --             ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:30     ; 1.0                     ; 4800 MB             ; 00:00:34                           ;
+; Fitter                    ; 00:00:29     ; 1.4                     ; 5342 MB             ; 00:00:33                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.2                     ; 4827 MB             ; 00:00:06                           ;
+; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 4727 MB             ; 00:00:04                           ;
+; Total                     ; 00:01:12     ; --                      ; --                  ; 00:01:18                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; FC80             ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; FC80             ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; FC80             ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; FC80             ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; FC80             ; Windows 7 ; 6.2        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Kale -c Kale
+quartus_fit --read_settings_files=off --write_settings_files=off Kale -c Kale
+quartus_asm --read_settings_files=off --write_settings_files=off Kale -c Kale
+quartus_sta Kale -c Kale
+quartus_eda --read_settings_files=off --write_settings_files=off Kale -c Kale
+
+
+
