@@ -64,7 +64,7 @@ Since Apple II shares its main memory with video memory, the VGA module should b
 
 A PLL is used to generate a 100MHz clock and then divided by 4 to be 25MHz for the VGA module. There are 4 100MHz cycles (each one 10ns) in every 25MHz cycle (40ns). Two 10ns cycles are allocated to VGA module to read main memory, the other 2 cycles are used as CPU read/write cycles. For each two cycles, the first cycle is used to put address to memory chip’s address port, the second cycle is used to read/write data.
 
-As max video resolution of Apple II+ is 280 * 192, every pixel is multiplied by 2, both horizontally and vertically so that it becomes 540 * 384. Compares to the standard VGA resolution of 640 * 480, there are still 100 horizontal pixels and 96 vertical pixels not used, I just left them blank.
+As max video resolution of Apple II+ is 280 * 192, every pixel is multiplied by 2, both horizontally and vertically so that it becomes 560 * 384. Compares to the standard VGA resolution of 640 * 480, there are still 80 horizontal pixels and 96 vertical pixels not used, I just left them blank.
 
 ### Disk simulator
 
