@@ -39,12 +39,12 @@ Files are separated into 3 parts:</br>
 >> /PDF		: The schematic and pcb drawings in PDF format.</br>
 >> /Lceda		: The LcEDA json file.</br>
 >> /Gerber	: The pcb gerber file. </br>
-* Verilog HDL source codes</br>
+* FPGA Verilog HDL source codes</br>
 > /Kale</br>
 >> /rtl		: Source code files</br>
 >> /ROMs		: ROM images</br>
 >> \par		: Project and environment files</br>
-* STM32F103 Ksource codes (for disk simulator)</br>
+* STM32F103 C source codes (for disk simulator)</br>
 > /AppleDiskIISimulator</br>
 >> /Drivers	:STM32F103 CMSIS and HAL library</br>
 >> /Inc		:Include files</br>
@@ -74,7 +74,7 @@ I preferred STM32F103 microcontroller and FatFs file system. I did not use Nios 
 
 It turns out to be extremely tricky to implement an Apple II disk driver simulator. Encoder and decoder are needed because the disk format is not straightforward. Data are nibblized to be stored on the media. The read/write procedure is time critical, but I still have problems on synchronizing data and status when STM32 disk simulator program communicates with FPGA hardware. I used the 6502 CPU rdy signal, it worked but dramatically affects the write back performance.  
 
-I made on OSD page for the disk simulator. Anytime you press F6 on the keyboard, you’ll see the OSD page on the screen. You can choose a .dsk image file to be “inserted” into the disk drive. Press ESC to exit the OSD screen. Please note that you cannot select a new disk image file when the disk simulator is reading/writing.
+I made an OSD page for the disk simulator. Anytime you press F6 on the keyboard, you’ll see the OSD page on the screen. You can choose a .dsk image file to be “inserted” into the disk drive. Press ESC to exit the OSD screen. Please note that you cannot select a new disk image file when the disk simulator is reading/writing.
 
 ### Joystick
 
